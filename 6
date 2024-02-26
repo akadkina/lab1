@@ -1,0 +1,86 @@
+#1 задание
+print ('Задание 1')
+some_tuple = tuple(range(7, 16))
+print ('Кортеж: ' + str(some_tuple)) 
+
+#2 Задание
+print ('Задание 2')
+some_list = list()
+name_list = list(some_tuple)
+for i in range(len(name_list)):
+    if name_list[i] % 2 == 0:
+        some_list.append(name_list[i] * 3)
+    else:
+        some_list.append(name_list[i] - 3) 
+print('Список: ' +str(some_list))           
+
+#3 задание 
+print ('Задание 3')
+some_set = set()
+for i in range(len(some_list)):
+    some_set.add(some_list[i])
+for i in range(len(some_list)):
+    some_set.add(some_tuple[i])   
+print('Множество: ' + str(some_set))    
+
+#4 задание 
+print ('Задание 4')
+some_dict = {'A' : 'mum' , 'B' : 'dad',}
+new_dict = {value: key for key, value in some_dict.items()}
+print ('Словарь: ' + str(some_dict))
+print ('Новый словарь: ' + str (new_dict))
+
+
+#5 задание
+print('Задание 5 ')
+def F(start, stop, step):
+    L = []
+    n = start
+    if (start <= stop) and (step >= 0):
+        while (n <= stop):
+            L.append(n)
+            n += step
+    elif (start >= stop) and (step <= 0):
+        while (n >= stop):
+            L.append(n)
+            n += step
+    else:
+        return []
+
+    list6 = list(filter(lambda x: x%6==0, L))
+    r = len(list6) - min(L)**3
+
+    if (r < 0):
+        return L[::-1]
+    else:
+        return [r] + L
+
+print(F(3, 5, 1))
+    
+#6 задание
+print(' Задание 6 ')
+from random import randint, choice
+
+string = ""
+for _ in range(randint(3, 10)):
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    string += "".join([choice(alphabet) for __ in range(randint(4, 9))])
+    string += " "
+
+def F(s):
+    words = s.split()
+    result = list(filter(G, words))
+    result.sort(reverse=True)
+    return result
+
+def G(word):
+    a = word[0]
+    return a == a.lower()
+
+print(string)
+print(F(string))
+
+#7 задание
+print('Задание 7 ')
+def F(n, x):
+    return n == 3**x
